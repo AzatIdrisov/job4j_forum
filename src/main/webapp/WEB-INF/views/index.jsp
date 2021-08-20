@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -22,6 +23,15 @@
         <table class="table">
             <thead>
             <tr>
+                <th><input type="button" value="Добавить тему" onclick="window.location.href = '/edit'"/></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
                 <th>Тема</th>
                 <th>Описание</th>
                 <th>Дата создания</th>
@@ -36,7 +46,7 @@
                 <tr>
                     <td><c:out value="${post.name}"/></td>
                     <td><c:out value="${post.desc}"/></td>
-                    <td></td>
+                    <td><fmt:formatDate  value="${post.created}" pattern="dd-MM-yyyy"/></td>
                     <td><input type="button" value="Update" onclick="window.location.href = '${updateButton}'"/></td>
                 </tr>
             </c:forEach>
@@ -54,4 +64,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
-</html
+</html>
