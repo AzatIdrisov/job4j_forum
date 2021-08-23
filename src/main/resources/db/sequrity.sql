@@ -11,5 +11,5 @@ create table users(
                       authority_id int references authorities(id)
 );
 
-insert into authorities (authority) values ('USER');
-insert into authorities (authority) values ('ADMIN');
+insert into authorities (authority) values ('ROLE_USER');
+insert into authorities (authority) values ('ROLE_ADMIN');

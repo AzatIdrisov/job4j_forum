@@ -22,9 +22,7 @@ public class PostService {
     }
 
     public Post save(Post post) {
-        if (post.getId() == 0) {
-            post.setCreated(new Date(System.currentTimeMillis()));
-        }
+        post.setCreated(new Date(System.currentTimeMillis()));
         posts.save(post);
         return post;
     }
