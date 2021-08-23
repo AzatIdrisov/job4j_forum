@@ -11,6 +11,10 @@ before_install:
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
+install: true
+
+script: mvn clean package -DskipTests=true
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
@@ -21,3 +25,9 @@ notifications:
       - azzzat72@yandex.ru
     on_success: never # default: change
     on_failure: always # default: always
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: lXwu/IqmaE8hxmuKfAB3nczNVq7DjqfMADxslhsZBDJwbk5InGwGKBJwL26vqwLIF9hLptwJ9D7EKC1JWRSjdFWtsi7mIHCrZj4PVkOUyr6LpBL5vO9t7MIJ/EMlFcPHJSuHeWEO/bUXJiS0s6sh/cFmXX2fGlfNwIxQnCHJ7liL8RcrFLGkLiCtYKYnuS3jN0oal1Gwy8Q5nmMZmHOAOfKco4pmZu7GZi/w/UZiC2ywCkB7ihherdTQQTevplk6zqSNgsmACjoHo/mp+zcmy5A0CrP0DCGFqoGq0ApqkjM/EkPuAk7CDm5/fZuyxZRk1bV0q3X00f5SGU1HH5ppQD32ydaOzp/etX7gnRq9Ln2WJqW6OenOOTJPWbIhMaYK5GnwoHX/1w4lCrn3r7LrxDwJ9ienAItDEOC3cNXFNp1tPamdHO88H676KZ9BwHOslMZsI0WKPgLLa8BaN3Ev18eDIxu3EPntjYOOW5i+qygqjRoZ1CI54D6CS4s/3F+co9Bgqah9PfQXXrwvoGBr4vxLGUR3Dd9AOgZfApRDacDMK/piIrT0PV784QOD3OWsVLPcfmgRvomjRSBSWBL3XOm9FlSg08/xHECobrDTF2OaXKP+D7LIBmuvzjqslfcAmpt89/ZcaWHxHnCD1wmrz8b//QNSYsVNga73nol0vMM=
+  app: morning-brushlands-39009
