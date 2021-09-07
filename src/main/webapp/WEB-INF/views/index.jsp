@@ -43,8 +43,11 @@
                 <c:url var="updateButton" value="/edit">
                     <c:param name="id" value="${post.id}"/>
                 </c:url>
+                <c:url var="goToMessages" value="/post">
+                    <c:param name="postId" value="${post.id}"/>
+                </c:url>
                 <tr>
-                    <td><c:out value="${post.name}"/></td>
+                    <td><a href="${goToMessages}"><c:out value="${post.name}"/></a></td>
                     <td><c:out value="${post.desc}"/></td>
                     <td><fmt:formatDate  value="${post.created}" pattern="dd-MM-yyyy"/></td>
                     <td><input type="button" value="Update" onclick="window.location.href = '${updateButton}'"/></td>

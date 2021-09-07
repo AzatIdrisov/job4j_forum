@@ -23,8 +23,24 @@ public class PostService {
 
     public Post save(Post post) {
         post.setCreated(new Date(System.currentTimeMillis()));
-        posts.save(post);
-        return post;
+        if (post.getId() != 0) {
+            Post currentPost = posts.findPostById(post.getId());
+            currentPost.setName(post.getName());
+            currentPost.setDesc(post.getDesc());
+            posts.save(currentPost);
+            return currentPost;
+        } else {
+            posts.save(post);
+            return post;
+        }
+    }
+
+    public Post update(Post post) {
+        Post currentPost = posts.findPostById(post.getId());
+        currentPost.setName(post.getName());
+        currentPost.setDesc(post.getDesc());
+        posts.save(currentPost);
+        return currentPost;
     }
 
     public Post findById(int id) {

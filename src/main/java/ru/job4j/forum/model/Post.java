@@ -1,9 +1,7 @@
 package ru.job4j.forum.model;
 
 import javax.persistence.*;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "posts")
@@ -15,6 +13,9 @@ public class Post {
     private String description;
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Message> messages = new ArrayList<>();
 
     public static Post of(String name, String description, Date created) {
         Post post = new Post();
@@ -56,6 +57,22 @@ public class Post {
         this.created = created;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -68,12 +85,12 @@ public class Post {
         return id == post.id
                 && Objects.equals(name, post.name)
                 && Objects.equals(description, post.description)
-                && Objects.equals(created, post.created);
+                && Objects.equals(created, post.created)
+                && Objects.equals(messages, post.messages);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, created);
+        return Objects.hash(id, name, description, created, messages);
     }
-
 }
