@@ -11,6 +11,9 @@
     <a href="<c:url value='/reg'/>">Регистрация</a>
     <table>
         <tr>
+            <td>Войти:</td>
+        </tr>
+        <tr>
             <td>UserName:</td>
             <td><input type='text' name='username'></td>
         </tr>

@@ -26,6 +26,15 @@
     <div class="row">
         <h4>Форум job4j. Создание и редактирование темы.</h4>
     </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th><input type="button" value="Главная" onclick="window.location.href = '/'"/></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
     <form name='login' action="<c:url value='/save'/>" method='POST'>
         <table>
             <input type ='hidden' name = "id" value = "${post.id}"/>
@@ -39,6 +48,9 @@
             </tr>
             <tr>
                 <td colspan='2'><input name="submit" type="submit" value="Submit" /></td>
+            </tr>
+            <tr>
+                <th><input type="button" value="Выйти" onclick="window.location.href = '/logout'"/></th>
             </tr>
         </table>
     </form>

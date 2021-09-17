@@ -34,7 +34,7 @@
             <tr>
                 <th>Тема</th>
                 <th>Описание</th>
-                <th>Обновлена</th>
+                <th>Создана</th>
                 <th>Update</th>
             </tr>
             </thead>
@@ -53,6 +53,9 @@
                     <td><input type="button" value="Update" onclick="window.location.href = '${updateButton}'"/></td>
                 </tr>
             </c:forEach>
+            <tr>
+                <th><input type="button" value="Выйти" onclick="window.location.href = '/logout'"/></th>
+            </tr>
             </tbody>
         </table>
     </div>
